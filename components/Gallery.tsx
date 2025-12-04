@@ -8,32 +8,51 @@ export default function Gallery() {
 
     const images = [
         {
-            url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075',
+            url: '/index1.jpg',
             alt: 'Chambre principale',
             description: 'Un espace douillet avec literie d\'exception'
         },
         {
-            url: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070',
+            url: '/index2.jpg',
             alt: 'Salon',
             description: 'Coin détente avec télévision'
         },
         {
-            url: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=2070',
+            url: '/header3.jpg',
             alt: 'Coin repas',
             description: 'Espace repas équipé et convivial'
         },
         {
-            url: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=2080',
+            url: '/gal2.jpg',
             alt: 'Mezzanine',
             description: 'Chambre en hauteur au charme unique'
         },
         {
-            url: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070',
+            url: '/gal3.jpg',
             alt: 'Salle de bain',
             description: 'Salle de bain moderne et épurée'
         },
         {
-            url: 'https://images.unsplash.com/photo-1615529182904-14819c35db37?q=80&w=2070',
+            url: '/gal4.jpg',
+            alt: 'Jardin',
+            description: 'Cadre verdoyant et apaisant'
+        },
+        {
+            url: '/gal5.jpg',
+            alt: 'Jardin',
+            description: 'Cadre verdoyant et apaisant'
+        },        {
+            url: '/gal6.jpg',
+            alt: 'Jardin',
+            description: 'Cadre verdoyant et apaisant'
+        },
+        {
+            url: '/gal7.jpg',
+            alt: 'Jardin',
+            description: 'Cadre verdoyant et apaisant'
+        },
+        {
+            url: '/gal8.jpg',
             alt: 'Jardin',
             description: 'Cadre verdoyant et apaisant'
         },
