@@ -1,26 +1,243 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════
+   À LA MALOGNE - Premium B&B Styles
+   ═══════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Palette raffinée */
+    --color-cream: #faf9f7;
+    --color-cream-warm: #f8f6f3;
+    --color-stone-light: #e8e6e3;
+    --color-gold: #c9a962;
+    --color-gold-muted: #b8a068;
+
+    /* Spacing harmonieux */
+    --section-padding: clamp(4rem, 8vw, 8rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ═══════════════════════════════════════════════════════════
+   BASE & TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+    background-color: var(--color-cream);
+}
+
+/* Titres avec Playfair */
+.font-playfair {
+    font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+}
+
+/* Sélection élégante */
+::selection {
+    background-color: #d4c5a9;
+    color: #1c1917;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR SUBTLE
+   ═══════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d6d3d1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a29e;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS SUBTILES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Fade in au chargement */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+/* Ligne qui s'étend */
+@keyframes lineExpand {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.animate-line {
+    animation: lineExpand 1s ease-out forwards;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPOSANTS RÉUTILISABLES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Ornement décoratif */
+.ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ornament::before,
+.ornament::after {
+    content: '';
+    height: 1px;
+    width: 2rem;
+    background: linear-gradient(90deg, transparent, #a8a29e, transparent);
+}
+
+/* Bouton premium */
+.btn-premium {
+    position: relative;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid currentColor;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.btn-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn-premium:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.btn-premium:hover {
+    color: var(--color-cream);
+}
+
+/* Section titre */
+.section-title {
+    font-family: var(--font-playfair), 'Playfair Display', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    color: #292524;
+}
+
+/* Petit label */
+.label-sm {
+    font-size: 0.625rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #78716c;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   IMAGES & MEDIA
+   ═══════════════════════════════════════════════════════════ */
+
+/* Effet de zoom subtil sur les images */
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img,
+.img-zoom > div {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.img-zoom:hover img,
+.img-zoom:hover > div {
+    transform: scale(1.05);
+}
+
+/* Bordure dorée subtile */
+.golden-border {
+    position: relative;
+}
+
+.golden-border::after {
+    content: '';
+    position: absolute;
+    inset: 0.5rem;
+    border: 1px solid var(--color-gold-muted);
+    opacity: 0.3;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.golden-border:hover::after {
+    opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 3rem;
+    }
+}
+
+/* Focus visible pour accessibilité */
+:focus-visible {
+    outline: 2px solid var(--color-gold-muted);
+    outline-offset: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GRAIN TEXTURE (optionnel, très subtil)
+   ═══════════════════════════════════════════════════════════ */
+
+.texture-grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
+    z-index: 9999;
 }

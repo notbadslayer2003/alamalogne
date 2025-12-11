@@ -4,15 +4,16 @@ import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
+import Pricing from "@/components/Pricing";
 
 export default function Home() {
-  return (
-    <>
-    <Header/>
-      <Hero/>
-      <Gallery/>
-      <Testimonials/>
-      <Footer/>
-    </>
-  );
+    return (
+        <>
+            <Header/>
+            <Hero/>
+            <Gallery/>
+            <Pricing/>
+            <Testimonials/>
+        </>
+    );
 }
